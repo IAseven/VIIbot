@@ -1,0 +1,10 @@
+<launch>
+    <!-- IMU relay from linorobot_msgs/Imu to sensor_msgs/Imu -->
+    <!-- <include file="$(find razor_imu_9dof)/launch/razor-pub.launch" /> -->
+
+    <node pkg="wt_imu" type="wtimu.py" name="imu_node" />
+
+    <!-- Publish static transform from base_footprint to imu_link -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base_footprint_to_imu_link" args="0.36 -0.025 0 0 0 0  /base_footprint /base_imu_link"/>
+
+</launch>
